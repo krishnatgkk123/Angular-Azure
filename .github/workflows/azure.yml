@@ -19,8 +19,10 @@ jobs:
       with:
         node-version: ${{ env.NODE_VERSION }}
     - name: Install dependencies
+      working-directory: hello-info
       run: npm install
     - name: Build
+      working-directory: hello-info
       run: npm run build -- --prod
     - name: 'Deploy to Azure WebApp'
       uses: azure/webapps-deploy@v1
